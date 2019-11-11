@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Pro.DAL", "Log4Pro.DAL\Log4Pro.DAL.csproj", "{D917FB19-B294-43D9-A3A1-C562E1E21901}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Pro.IS.TRM.DAL", "Log4Pro.DAL\Log4Pro.IS.TRM.DAL.csproj", "{D917FB19-B294-43D9-A3A1-C562E1E21901}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Pro.IS.TRM", "Log4Pro.IS.TRM\Log4Pro.IS.TRM.csproj", "{C4723F1D-736A-4750-AC00-C0767D7B781F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D917FB19-B294-43D9-A3A1-C562E1E21901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D917FB19-B294-43D9-A3A1-C562E1E21901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D917FB19-B294-43D9-A3A1-C562E1E21901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4723F1D-736A-4750-AC00-C0767D7B781F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4723F1D-736A-4750-AC00-C0767D7B781F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4723F1D-736A-4750-AC00-C0767D7B781F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4723F1D-736A-4750-AC00-C0767D7B781F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

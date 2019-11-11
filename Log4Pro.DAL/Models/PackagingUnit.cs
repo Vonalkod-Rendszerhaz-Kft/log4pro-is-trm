@@ -1,17 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VRH.Common;
 
-namespace Log4Pro.DAL.Models
+namespace Log4Pro.IS.TRM.DAL
 {
-    public class PackagingUnit
+    /// <summary>
+    /// Csomagolási (belső tárolási egységek)
+    /// </summary>
+    [Table("PackagingUnits")]
+    public class PackagingUnit : StoreUnit
     {
-        public int Id { get; set; }
+        /// <summary>
+        /// Szálítási egység azonosító
+        /// </summary>
+        [MaxLength(128)]
+        [Index(IsUnique = false, IsClustered = false)]
         public string PackageUnitId { get; set; }
-        public virtual Part Part { get; set; }
-        public int Quantity { get; set; }
-        public DateTime Created { get; set; }
+
+        /// <summary>
+        /// Csomagolási egység státusza
+        /// </summary>
+        [MaxLength(30)]
+        [Index(IsUnique = false, IsClustered = false)]
+        public string PackagingUnitStatus
+        {
+            get => Status.ToString();
+            set => Status = value.ToEnum<PackagingUnitStatus>();
+        }
+
+        /// <summary>
+        /// Csomagolói egység státusza
+        /// </summary>
+        [NotMapped]
+        public PackagingUnitStatus Status { get; set; }
     }
 }

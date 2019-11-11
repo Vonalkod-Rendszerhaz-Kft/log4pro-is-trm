@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plugins StackSize="50">
+  <Plugin Assembly="Log4Pro.IS.TRM.ApplicationContainer.Plugin.dll" Type="Log4Pro.IS.TRM.TRMPlugin" Version="1.0.0" Singletone="false" AutoStart="true" PluginDirectory="">
+    <Instance Id="instance1" Name="Log4Pro.IS.TRMPlugin instance 1" />
+  </Plugin>
+<Plugin Assembly="Log4Pro.IS.TRM.ApplicationContainer.Plugin.dll" Type="Log4Pro.IS.TRM.Log4Pro.IS.TRMPlugin" Version="1.0.0" Singletone="false" AutoStart="true" PluginDirectory="">
+    <Instance Id="instance1" Name="Log4Pro.IS.TRMPlugin instance 1" />
+  </Plugin></Plugins>
