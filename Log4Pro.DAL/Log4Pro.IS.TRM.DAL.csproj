@@ -59,10 +59,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DALServices.cs" />
     <Compile Include="ISTRMContext.cs" />
-    <Compile Include="Migrations\201910080925013_InitDatabase.cs" />
-    <Compile Include="Migrations\201910080925013_InitDatabase.designer.cs">
-      <DependentUpon>201910080925013_InitDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201911111615142_InitDb.cs" />
+    <Compile Include="Migrations\201911111615142_InitDb.designer.cs">
+      <DependentUpon>201911111615142_InitDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911151307541_Part_Entity_Add_SupplierShippingUnitQty_Field.cs" />
+    <Compile Include="Migrations\201911151307541_Part_Entity_Add_SupplierShippingUnitQty_Field.designer.cs">
+      <DependentUpon>201911151307541_Part_Entity_Add_SupplierShippingUnitQty_Field.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911190905433_StoreUnit_CloserTransaction_FieldName_Repair.cs" />
+    <Compile Include="Migrations\201911190905433_StoreUnit_CloserTransaction_FieldName_Repair.designer.cs">
+      <DependentUpon>201911190905433_StoreUnit_CloserTransaction_FieldName_Repair.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911191256423_StoreUnit_Add_StoreLocation_Field.cs" />
+    <Compile Include="Migrations\201911191256423_StoreUnit_Add_StoreLocation_Field.designer.cs">
+      <DependentUpon>201911191256423_StoreUnit_Add_StoreLocation_Field.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MonitorData.cs" />
@@ -84,8 +97,23 @@
     <None Include="Vrh.NugetModuls.Documentations\VRH.Common\ReadMe.md" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910080925013_InitDatabase.resx">
-      <DependentUpon>201910080925013_InitDatabase.cs</DependentUpon>
+    <None Include="..\Log4Pro.IS.TRM\VRHConnections.xml">
+      <Link>VRHConnections.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911111615142_InitDb.resx">
+      <DependentUpon>201911111615142_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911151307541_Part_Entity_Add_SupplierShippingUnitQty_Field.resx">
+      <DependentUpon>201911151307541_Part_Entity_Add_SupplierShippingUnitQty_Field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911190905433_StoreUnit_CloserTransaction_FieldName_Repair.resx">
+      <DependentUpon>201911190905433_StoreUnit_CloserTransaction_FieldName_Repair.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911191256423_StoreUnit_Add_StoreLocation_Field.resx">
+      <DependentUpon>201911191256423_StoreUnit_Add_StoreLocation_Field.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

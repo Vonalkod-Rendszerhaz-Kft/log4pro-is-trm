@@ -27,5 +27,9 @@ namespace Log4Pro.IS.TRM.DAL
         /// Kanban állvány
         /// </summary>
         Kanban,
+        /// <summary>
+        /// Kanban térkép
+        /// </summary>
+        KanbanMap
     }
 }

@@ -20,9 +20,9 @@ namespace Log4Pro.IS.TRM.DAL
         /// </summary>
         SUReceive,
         /// <summary>
-        /// PU létrehozva
+        /// PU töltése
         /// </summary>
-        PUCreate,
+        PULoad,
         /// <summary>
         /// PU kitárolva
         /// </summary>

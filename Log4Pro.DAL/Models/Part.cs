@@ -33,7 +33,12 @@ namespace Log4Pro.IS.TRM.DAL
         [Index(IsClustered = false, IsUnique = true)] 
         [Required]
         public string ExternalPartNumber { get; set; }
-        
+
+        /// <summary>
+        /// Besszálíztó csomagolási egységének a mennyisége
+        /// </summary>
+        public int SupplierShippingUnitQty { get; set; }
+
         /// <summary>
         /// FK Beszállító
         /// </summary>
@@ -42,7 +47,7 @@ namespace Log4Pro.IS.TRM.DAL
         /// <summary>
         /// NP Beszállító
         /// </summary>
-        public virtual Supplier Supplier { get; set; }       
+        public virtual Supplier Supplier { get; set; }
 
         /// <summary>
         /// Megnevezés

@@ -17,23 +17,22 @@ namespace Log4Pro.IS.TRM.DAL
         public ISTRMContext()
             : base(VRHConnectionStringStore.GetSQLConnectionString("IS-TRM", true))
         {
-        }
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ISTRMContext, Migrations.Configuration>());
+        }        
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
-
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-        }
-
-        public virtual DbSet<PackagingUnit> Transaction { get; set; }
+        public virtual DbSet<PackagingUnit> PackagingUnits { get; set; }
         public virtual DbSet<ShippingUnit> ShippingUnits { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Part> Parts { get; set; }
         public virtual DbSet<MonitorData> MonitorDatas { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+        }        
     }
 
 }

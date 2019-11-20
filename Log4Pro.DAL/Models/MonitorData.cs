@@ -40,6 +40,8 @@ namespace Log4Pro.IS.TRM.DAL
         /// <summary>
         /// Példány
         /// </summary>
+        [MaxLength(50)]
+        [Index(IsClustered = false, IsUnique = false)]
         public string Instance { get; set; }
 
         /// <summary>

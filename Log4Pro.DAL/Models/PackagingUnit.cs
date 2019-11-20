@@ -23,7 +23,7 @@ namespace Log4Pro.IS.TRM.DAL
         public string PackageUnitId { get; set; }
 
         /// <summary>
-        /// Csomagolási egység státusza
+        /// Csomagolási egység státusza (Ne nhasználd kódoldalon!!!)
         /// </summary>
         [MaxLength(30)]
         [Index(IsUnique = false, IsClustered = false)]

@@ -7,13 +7,13 @@ namespace Log4Pro.IS.TRM.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0")]
-    public sealed partial class InitDatabase : IMigrationMetadata
+    public sealed partial class StoreUnit_CloserTransaction_FieldName_Repair : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(StoreUnit_CloserTransaction_FieldName_Repair));
         
         string IMigrationMetadata.Id
         {
-            get { return "201910080925013_InitDatabase"; }
+            get { return "201911190905433_StoreUnit_CloserTransaction_FieldName_Repair"; }
         }
         
         string IMigrationMetadata.Source

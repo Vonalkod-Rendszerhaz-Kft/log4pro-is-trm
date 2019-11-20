@@ -98,8 +98,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HandledIntervention.cs" />
+    <Compile Include="KanbanModule\KanbanService.cs" />
+    <Compile Include="MonitorDataContentHelper.cs" />
+    <Compile Include="PosibleRequestIds.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestDistributor.cs" />
+    <Compile Include="PutOutModule\PutOutService.cs" />
+    <Compile Include="RepackingModule\RepackingService.cs" />
+    <Compile Include="TrackingModule.cs" />
+    <Compile Include="ReceivingModule\ReceivingService.cs" />
+    <Compile Include="TakeInModule\SupplierShippingUnit.cs" />
+    <Compile Include="TakeInModule\TakeInService.cs" />
     <None Include="App.config" />
     <None Include="packages.config" />
     <Compile Include="Log4Pro.IS.TRMPlugin.cs" />
@@ -133,6 +141,10 @@
       <Project>{d917fb19-b294-43d9-a3a1-c562e1e21901}</Project>
       <Name>Log4Pro.IS.TRM.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TRM.EventHubContract\Log4Pro.IS.TRM.EventHubContract.csproj">
+      <Project>{26734fc3-d03d-4b91-a295-70ccd1903b0f}</Project>
+      <Name>Log4Pro.IS.TRM.EventHubContract</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="XmlParser.xml">
@@ -147,8 +159,11 @@
     <None Include="LogConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="VRHConnections.xml" />
+    <None Include="VRHConnections.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

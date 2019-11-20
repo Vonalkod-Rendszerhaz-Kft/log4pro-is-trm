@@ -1,33 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Vrh.EventHub.Intervention;
+using Log4Pro.IS.TRM.TakeInModule;
+using Log4Pro.IS.TRM.ReceivingModule;
+using Log4Pro.IS.TRM.RepackingModule;
+using Log4Pro.IS.TRM.PutOutModule;
+using Log4Pro.IS.TRM.KanbanModule;
 
 namespace Log4Pro.IS.TRM
 {
-    public class RequestDistributor : IDisposable
+    public class TrackingModule : IDisposable
     {
-        public RequestDistributor()
-        {
-            EventHubIntervention.RegisterInterventionChannel("IS-TRM", RequestDistributorMethod);
-        }
+        /// <summary>
+        /// Bevételezés almodul
+        /// </summary>
+        private TakeInService takeInModule = new TakeInService();
 
-        private Dictionary<string, string> RequestDistributorMethod(string intervention, Dictionary<string, string> parameters)
-        {
-            if (disposedValue)
-            {
-                throw new Exception("Tracking service is under stopping...");
-            }
-            // TODO: implement ditribution switc
-            switch (intervention)
-            {
-                default:
-                    throw new Exception($"Unknow request id: {intervention}");
-            }
-            return null;
-        }
+        /// <summary>
+        /// betárolás almodul
+        /// </summary>
+        private ReceivingService receivingModule = new ReceivingService();
+
+        /// <summary>
+        /// Átcsomagolás almodul
+        /// </summary>
+        private RepackingService repackingModule = new RepackingService();
+
+        /// <summary>
+        /// Kitárolás almodul
+        /// </summary>
+        private PutOutService putOutModule = new PutOutService();
+
+        /// <summary>
+        /// Kanban almodul
+        /// </summary>
+        private KanbanService kanbanModule = new KanbanService();
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
@@ -39,9 +44,12 @@ namespace Log4Pro.IS.TRM
                 if (disposing)
                 {
                     // TODO: dispose managed state (managed objects).
-                    EventHubIntervention.DropInterventionChannel("IS-TRM");
+                    takeInModule.Dispose();
+                    receivingModule.Dispose();
+                    repackingModule.Dispose();
+                    putOutModule.Dispose();
+                    kanbanModule.Dispose();
                 }
-
                 // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
                 // TODO: set large fields to null.
                 disposedValue = true;

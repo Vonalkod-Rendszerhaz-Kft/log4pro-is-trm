@@ -51,7 +51,8 @@ namespace Log4Pro.IS.TRM
             try
             {
                 // Implement Start logic here 
-
+                trackingModule?.Dispose();
+                trackingModule = new TrackingModule();
                 base.Start();
             }
             catch (Exception ex)
@@ -73,7 +74,8 @@ namespace Log4Pro.IS.TRM
             try
             {
                 // Implement stop logic here
-
+                trackingModule?.Dispose();
+                trackingModule = null;
                 base.Stop();
             }
             catch (Exception ex)
@@ -81,6 +83,8 @@ namespace Log4Pro.IS.TRM
                 SetErrorState(ex);
             }
         }
+
+        private TrackingModule trackingModule;
 
         #region IDisposable Support
         protected override void Dispose(bool disposing)

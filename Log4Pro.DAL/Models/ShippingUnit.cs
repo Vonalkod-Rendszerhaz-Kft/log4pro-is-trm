@@ -30,7 +30,7 @@ namespace Log4Pro.IS.TRM.DAL
         public string ExternalShippingUnitId { get; set; }
 
         /// <summary>
-        /// Beszálítói egység státusza
+        /// Beszálítói egység státusza (Ne használd kód oldalról!!!)
         /// </summary>
         [MaxLength(30)]
         [Index(IsUnique = false, IsClustered = false)]
@@ -45,5 +45,12 @@ namespace Log4Pro.IS.TRM.DAL
         /// </summary>
         [NotMapped] 
         public ShippingUnitStatus Status { get; set;}
+
+        /// <summary>
+        /// Tárolóhely, ahol a beszálítói egység található
+        /// </summary>
+        [MaxLength(30)]
+        [Index(IsUnique = false, IsClustered = false)]
+        public string StoreLocation { get; set; }
     }
 }

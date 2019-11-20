@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Pro.IS.TRM.DAL", "Log4P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Pro.IS.TRM", "Log4Pro.IS.TRM\Log4Pro.IS.TRM.csproj", "{C4723F1D-736A-4750-AC00-C0767D7B781F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Pro.IS.TRM.EventHubContract", "TRM.EventHubContract\Log4Pro.IS.TRM.EventHubContract.csproj", "{26734FC3-D03D-4B91-A295-70CCD1903B0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{609243D0-161F-42C0-9FA7-6F829E572866}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{C4723F1D-736A-4750-AC00-C0767D7B781F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4723F1D-736A-4750-AC00-C0767D7B781F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4723F1D-736A-4750-AC00-C0767D7B781F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26734FC3-D03D-4B91-A295-70CCD1903B0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26734FC3-D03D-4B91-A295-70CCD1903B0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26734FC3-D03D-4B91-A295-70CCD1903B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26734FC3-D03D-4B91-A295-70CCD1903B0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{609243D0-161F-42C0-9FA7-6F829E572866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609243D0-161F-42C0-9FA7-6F829E572866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609243D0-161F-42C0-9FA7-6F829E572866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609243D0-161F-42C0-9FA7-6F829E572866}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

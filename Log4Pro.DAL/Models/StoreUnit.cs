@@ -56,6 +56,6 @@ namespace Log4Pro.IS.TRM.DAL
         /// <summary>
         /// NP: A rekordot lezáró tranzakció azonosítója
         /// </summary>
-        public Transaction CloserTranzaction { get; set; }
+        public Transaction CloserTransaction { get; set; }
     }
 }

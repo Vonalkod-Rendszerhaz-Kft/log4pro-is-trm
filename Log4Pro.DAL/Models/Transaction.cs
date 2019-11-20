@@ -25,7 +25,7 @@ namespace Log4Pro.IS.TRM.DAL
         public DateTime Timestamp { get; set; }
 
         /// <summary>
-        /// Tranzakció típusa
+        /// Tranzakció típusa (Ne használd kódoldalon!!!)
         /// </summary>
         [MaxLength(50)]
         [Index(IsClustered = false, IsUnique = false)]
