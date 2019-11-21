@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vrh.ApplicationContainer;
 using Log4Pro.IS.TRM.DAL;
 
 namespace Log4Pro.IS.TRM
 {
+    /// <summary>
+    /// Trackink Module Application Container plugin class
+    /// </summary>
     public class TRMPlugin : PluginAncestor
     {
         /// <summary>
@@ -84,6 +84,11 @@ namespace Log4Pro.IS.TRM
             }
         }
 
+
+        /// <summary>
+        /// Követés modul implementáció
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Code Quality", "IDE0069:Disposable fields should be disposed", Justification = "<Pending>")]
         private TrackingModule trackingModule;
 
         #region IDisposable Support
@@ -97,7 +102,6 @@ namespace Log4Pro.IS.TRM
                     {
                         BeginDispose();
                         // TODO: dispose managed state (managed objects).
-
                         Stop();
                     }
                     finally

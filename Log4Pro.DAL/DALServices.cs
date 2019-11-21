@@ -161,7 +161,7 @@ namespace Log4Pro.IS.TRM.DAL
                 Status = PackagingUnitStatus.OnKanban,
             };
             dbc.Transactions.Add(transaction);
-            dbc.PackagingUnits.Add(packagingUnit);
+            dbc.PackagingUnits.Add(newPackagingUnit);
             dbc.SaveChanges();
         }
 
@@ -189,7 +189,7 @@ namespace Log4Pro.IS.TRM.DAL
                 Status = PackagingUnitStatus.InProduction,
             };
             dbc.Transactions.Add(transaction);
-            dbc.PackagingUnits.Add(packagingUnit);
+            dbc.PackagingUnits.Add(newPackagingUnit);
             dbc.SaveChanges();
         }
 

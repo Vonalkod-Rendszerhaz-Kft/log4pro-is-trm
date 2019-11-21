@@ -59,6 +59,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Log4Pro.IS.TRM\Properties\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="DALServices.cs" />
     <Compile Include="ISTRMContext.cs" />
     <Compile Include="Migrations\201911111615142_InitDb.cs" />

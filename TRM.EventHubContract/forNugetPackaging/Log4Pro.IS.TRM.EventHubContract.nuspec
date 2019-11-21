@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>$title$</id>
+    <version>$version$</version>
+    <title>VRH Island System™ - Tracking Module EventHub Contract</title>
+    <authors>Görcsös Zoltán</authors>
+    <owners>Vonalkód Rendszerház Kft.</owners>
+    <tags>VRH, Log4Pro, Island System™, Base Tracking Module, EventHub</tags>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>$copyright$</copyright>
+    <releaseNotes>
+      v1.0.0:
+      - Initial Version
+    </releaseNotes>
+  </metadata>
+  <files>
+  </files>
+</package>

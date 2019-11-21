@@ -12,27 +12,27 @@ namespace Log4Pro.IS.TRM
         /// <summary>
         /// Bevételezés almodul
         /// </summary>
-        private TakeInService takeInModule = new TakeInService();
+        private readonly TakeInService takeInModule = new TakeInService();
 
         /// <summary>
         /// betárolás almodul
         /// </summary>
-        private ReceivingService receivingModule = new ReceivingService();
+        private readonly ReceivingService receivingModule = new ReceivingService();
 
         /// <summary>
         /// Átcsomagolás almodul
         /// </summary>
-        private RepackingService repackingModule = new RepackingService();
+        private readonly RepackingService repackingModule = new RepackingService();
 
         /// <summary>
         /// Kitárolás almodul
         /// </summary>
-        private PutOutService putOutModule = new PutOutService();
+        private readonly PutOutService putOutModule = new PutOutService();
 
         /// <summary>
         /// Kanban almodul
         /// </summary>
-        private KanbanService kanbanModule = new KanbanService();
+        private readonly KanbanService kanbanModule = new KanbanService();
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls

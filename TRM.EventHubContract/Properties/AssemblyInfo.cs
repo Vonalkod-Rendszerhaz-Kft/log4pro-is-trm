@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TRM.EventHubContract")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Log4Pro.IS.TRM.EventHubContract")]
+[assembly: AssemblyDescription("VRH Island System™ - Tracking Module EventHub Contract")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TRM.EventHubContract")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Vonalkód Rendszerház Kft.")]
+[assembly: AssemblyProduct("VRH Island System™ - Tracking Module")]
+[assembly: AssemblyCopyright("Copyright © Vonalkód Rendszerház Kft. 2019-present")]
+[assembly: AssemblyTrademark("VRH, Log4Pro, Island System™, Base Tracking Module, EventHub")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -34,3 +34,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyInformationalVersion("1.0.0")]

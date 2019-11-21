@@ -35,17 +35,19 @@ namespace Log4Pro.IS.TRM.TakeInModule
             try
             {
                 var part = new SupplierShippingUnit(request.RequestContent.SupplierShippingUnitId);
-                var responseContent = new TrackingContract.TakeInModule.TakeInQueryResponse();
-                responseContent.Datas = new Dictionary<string, string>()
+                var responseContent = new TrackingContract.TakeInModule.TakeInQueryResponse
                 {
-                    { "mtsid", part.MTSId },
-                    { "address", part.Slot },
-                    { "c9023", part.FVS },
-                    { "description", part.PartDescription },
-                    { "partnumber", part.PartNumber },
-                    { "quantity", part.Qty.ToString() },
-                    { "msl", "" },
-                    { "msg", "" },
+                    Datas = new Dictionary<string, string>()
+                    {
+                        { "mtsid", part.MTSId },
+                        { "address", part.Slot },
+                        { "c9023", part.FVS },
+                        { "description", part.PartDescription },
+                        { "partnumber", part.PartNumber },
+                        { "quantity", part.Qty.ToString() },
+                        { "msl", "" },
+                        { "msg", "" },
+                    }
                 };
                 response.ResponseContent = responseContent;
             }
