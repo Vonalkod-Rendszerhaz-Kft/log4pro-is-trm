@@ -37,7 +37,7 @@ namespace Log4Pro.IS.TRM.PutOutModule
                 {
                     var storedPackagingUnit = dbc.PackagingUnits.FirstOrDefault(x => x.PackageUnitId == request.RequestContent.PackagingUnitId
                                                                                     && x.Active
-                                                                                    && x.Status == PackagingUnitStatus.Created);
+                                                                                    && x.PackagingUnitStatus == PackagingUnitStatus.Created.ToString());
                     if (storedPackagingUnit == null)
                     {
                         throw new Exception($"This packaging unit is not in store: {request.RequestContent.PackagingUnitId}");

@@ -66,7 +66,7 @@ namespace Log4Pro.IS.TRM.DAL
             }
             var packagingUnit = dbc.PackagingUnits.FirstOrDefault(x => x.PackageUnitId == packagingUnitId
                                                                         && x.Active &&
-                                                                        x.Status == PackagingUnitStatus.Created);
+                                                                        x.PackagingUnitStatus == PackagingUnitStatus.Created.ToString());
             int existingQty = 0;
             if (packagingUnit != null)
             {
@@ -202,21 +202,21 @@ namespace Log4Pro.IS.TRM.DAL
         /// <param name="xmlContent">a monitor rekord adattartalma</param>
         public static void AddMonitorData(this ISTRMContext dbc, WorkstationType type, string instanceName, XElement xmlContent)
         {
-            var monitorRecord = dbc.MonitorDatas.FirstOrDefault(x => x.Type == type && x.Instance == instanceName);
+            var monitorRecord = dbc.MonitorDatas.FirstOrDefault(x => x.WorkstationType == type.ToString() && x.Instance == instanceName);
             if (monitorRecord == null)
             {
                 monitorRecord = new MonitorData()
                 {
                     Instance = instanceName,
-                    Type = WorkstationType.Receiving,
+                    WorkstationType = type.ToString(),
+                    Timestamp = DateTime.Now
                 };
                 dbc.MonitorDatas.Add(monitorRecord);
             }
-            else
-            {
-                monitorRecord.ContentXml = xmlContent;
-                monitorRecord.Timestamp = DateTime.Now;
-            }
+
+            monitorRecord.ContentXml = xmlContent;
+            monitorRecord.Timestamp = DateTime.Now;
+            
             dbc.SaveChanges();
         }
     }

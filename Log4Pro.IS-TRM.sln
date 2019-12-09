@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Pro.IS.TRM.EventHubCont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{609243D0-161F-42C0-9FA7-6F829E572866}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SzigetRendszer", "SzigetRendszer\SzigetRendszer.csproj", "{02E15888-D319-42E8-90AB-7BC695C0D5AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{609243D0-161F-42C0-9FA7-6F829E572866}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{609243D0-161F-42C0-9FA7-6F829E572866}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{609243D0-161F-42C0-9FA7-6F829E572866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02E15888-D319-42E8-90AB-7BC695C0D5AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02E15888-D319-42E8-90AB-7BC695C0D5AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02E15888-D319-42E8-90AB-7BC695C0D5AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02E15888-D319-42E8-90AB-7BC695C0D5AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

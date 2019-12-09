@@ -44,7 +44,7 @@ namespace Log4Pro.IS.TRM.RepackingModule
                 {
                     var shippingUnit = dbc.ShippingUnits.FirstOrDefault(x => x.Active
                                                         && x.ShippingUnitId == request.RequestContent.ShippingUnitId
-                                                        && x.Status == ShippingUnitStatus.Received);
+                                                        && x.ShippingUnitStatus == ShippingUnitStatus.Received.ToString());
                     if (shippingUnit == null)
                     {
                         throw new Exception($"This shipping unit is not exists, is not received, or is empty: {request.RequestContent.ShippingUnitId}");
@@ -88,7 +88,7 @@ namespace Log4Pro.IS.TRM.RepackingModule
                 {
                     var shippingUnit = dbc.ShippingUnits.FirstOrDefault(x => x.Active
                                                         && x.ShippingUnitId == request.RequestContent.ShippingUnitId
-                                                        && x.Status == ShippingUnitStatus.Received);
+                                                        && x.ShippingUnitStatus == ShippingUnitStatus.Received.ToString());
                     if (shippingUnit == null)
                     {
                         throw new Exception($"This shipping unit is not exists, is not received, or is empty: {request.RequestContent.ShippingUnitId}");

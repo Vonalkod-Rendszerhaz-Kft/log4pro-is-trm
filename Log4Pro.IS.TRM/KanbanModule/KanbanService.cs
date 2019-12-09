@@ -38,7 +38,7 @@ namespace Log4Pro.IS.TRM.KanbanModule
                 {
                     var packagingUnit = dbc.PackagingUnits.FirstOrDefault(x => x.Active
                                                                    && x.PackageUnitId == request.PackageUnitId
-                                                                   && x.Status == PackagingUnitStatus.PutOut);
+                                                                   && x.PackagingUnitStatus == PackagingUnitStatus.PutOut.ToString());
                     if (packagingUnit == null)
                     {
                         throw new Exception($"Unknown packaging unit id: {request.PackageUnitId}");
@@ -77,7 +77,7 @@ namespace Log4Pro.IS.TRM.KanbanModule
                 {
                     var packagingUnit = dbc.PackagingUnits.FirstOrDefault(x => x.Active
                                                                    && x.PackageUnitId == request.PackageUnitId
-                                                                   && x.Status == PackagingUnitStatus.OnKanban);
+                                                                   && x.PackagingUnitStatus == PackagingUnitStatus.OnKanban.ToString());
                     if (packagingUnit == null)
                     {
                         throw new Exception($"Unknown packaging unit id: {request.PackageUnitId}");
@@ -118,7 +118,7 @@ namespace Log4Pro.IS.TRM.KanbanModule
                     {
                         var packagingUnit = dbc.PackagingUnits.FirstOrDefault(x => x.Active 
                                                                                     && x.PackageUnitId == location.LoadedPackageUnitId 
-                                                                                    && x.Status == PackagingUnitStatus.OnKanban);
+                                                                                    && x.PackagingUnitStatus == PackagingUnitStatus.OnKanban.ToString());
                         var xml = GetMonitorMapData(packagingUnit, location);
                         dbc.AddMonitorData(WorkstationType.KanbanMap, $"{InstanceName}:{location.Location}", xml);
                     }                    

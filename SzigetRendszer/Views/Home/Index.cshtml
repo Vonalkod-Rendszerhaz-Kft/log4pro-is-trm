@@ -1,0 +1,37 @@
+﻿<div class="jumbotron">
+    <h1>Szigetrendszer</h1>
+</div>
+
+<script>
+    function GetData(url) {
+        document.getElementById('response').innerHTML = ""
+        $.ajax({
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            url: url,
+            success: function(data){
+                console.dir(data)
+                document.getElementById('response').innerHTML = JSON.stringify(data)
+            },
+            error: function (a, jqXHR, exception) { }
+        });
+    }
+</script>
+
+<div>
+    Response: <p id="response"></p>
+    <input id="supplierShippingUnitId" /> supplierShippingUnitId (TakeInQuery) <br />
+    <input id="externalShippingUnitId" /> externalShippingUnitId (TakeIn)  <br />
+    <input id="internalShippingUnitId" /> internalShippingUnitId (TakeIn) <br />
+    <input id="partNumber" /> partNumber (TakeIn) <br />
+    <input id="qty" /> qty (TakeIn, Repack, AvailableQty) <br />
+    <input id="shippingUnitId" /> shippingUnitId (Repack, AvailableQty, Receive) <br />
+    <input id="packagingUnitId" /> packagingUnitId (Repack, AvailableQty, PutOut) <br />
+    <a style="padding:5px" href="javascript:;" onclick="GetData('https://localhost:44335/istrm/api/TakeInQuery?supplierShippingUnitId=' + document.getElementById('supplierShippingUnitId').value)">TakeInQuery</a>
+    <a style="padding:5px" href="javascript:;" onclick="GetData('https://localhost:44335/istrm/api/TakeIn?externalShippingUnitId=' + document.getElementById('externalShippingUnitId').value + '&internalShippingUnitId=' + document.getElementById('internalShippingUnitId').value + '&partNumber=' + document.getElementById('partNumber').value + '&qty=' + document.getElementById('qty').value);">TakeIn</a>
+    <a style="padding:5px" href="javascript:;" onclick="GetData('https://localhost:44335/istrm/api/Receive?shippingUnitId='+ document.getElementById('shippingUnitId').value)">Receive</a>
+    <a style="padding:5px" href="javascript:;" onclick="GetData('https://localhost:44335/istrm/api/Repack?shippingUnitId='+document.getElementById('shippingUnitId').value+'&packagingUnitId='+document.getElementById('packagingUnitId').value+'&qty='+document.getElementById('qty').value);">Repack</a>
+    <a style="padding:5px" href="javascript:;" onclick="GetData('https://localhost:44335/istrm/api/AvailableQty?shippingUnitId='+document.getElementById('shippingUnitId').value+'&packagingUnitId='+document.getElementById('packagingUnitId').value+'&qty='+document.getElementById('qty').value);">AvailableQty</a>
+    <a style="padding:5px" href="javascript:;" onclick="GetData('https://localhost:44335/istrm/api/PutOut?packagingUnitId='+document.getElementById('packagingUnitId').value);">PutOut</a>
+</div>

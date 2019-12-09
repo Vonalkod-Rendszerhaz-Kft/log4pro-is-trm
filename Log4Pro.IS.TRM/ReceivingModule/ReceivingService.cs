@@ -40,7 +40,7 @@ namespace Log4Pro.IS.TRM.ReceivingModule
                 {
                     var takedinShippingUnit = dbc.ShippingUnits.FirstOrDefault(x => x.ShippingUnitId == request.RequestContent.ShippingUnitId 
                                                                                     && x.Active 
-                                                                                    && x.Status == ShippingUnitStatus.TakedIn);
+                                                                                    && x.ShippingUnitStatus == ShippingUnitStatus.TakedIn.ToString());
                     if (takedinShippingUnit == null)
                     {
                         throw new Exception($"This shipping unit is not taked in: {request.RequestContent.ShippingUnitId}");
