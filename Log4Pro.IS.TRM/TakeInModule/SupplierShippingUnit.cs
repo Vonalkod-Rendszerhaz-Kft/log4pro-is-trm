@@ -115,12 +115,12 @@ namespace Log4Pro.IS.TRM.TakeInModule
         {
             if (length == null)
             {
-                return Guid.NewGuid().ToString();
+                return Guid.NewGuid().ToString().Replace("-", "");
             }
             else
             {
-                string randomString = Guid.NewGuid().ToString();
-                return randomString.Substring(0, length.HasValue ? randomString.Length : length.Value);
+                string randomString = Guid.NewGuid().ToString().Replace("-", "");
+                return randomString.Substring(0, length.HasValue ? length.Value : randomString.Length);
             }
         }
 

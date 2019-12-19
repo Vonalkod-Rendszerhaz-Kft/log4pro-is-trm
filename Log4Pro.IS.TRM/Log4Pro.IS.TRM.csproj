@@ -77,8 +77,9 @@
     <Reference Include="VRH.ConnectionStringStore, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\VRH.ConnectionStringStore.2.3.2\lib\net451\VRH.ConnectionStringStore.dll</HintPath>
     </Reference>
-    <Reference Include="Vrh.EventHub.Core, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Vrh.EventHub.Core.1.2.0\lib\net45\Vrh.EventHub.Core.dll</HintPath>
+    <Reference Include="Vrh.EventHub.Core, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vrh.EventHub.Core.1.2.1\lib\net45\Vrh.EventHub.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Vrh.EventHub.Intervention, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Vrh.EventHub.Intervention.1.0.0\lib\net45\Vrh.EventHub.Intervention.dll</HintPath>
