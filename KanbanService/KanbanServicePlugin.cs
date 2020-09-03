@@ -2,19 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
 using Vrh.ApplicationContainer.Control.Contract;
 using Vrh.ApplicationContainer.Core;
+using Microsoft.Extensions.Configuration;
+using System.Dynamic;
 
 namespace KanbanService
 {
+
 	public class KanbanServicePlugin : PluginAncestor
 	{
+		//private static IConfiguration _configuration;
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		private KanbanServicePlugin()
 		{
+			//var builder = new ConfigurationBuilder()
+			//.SetBasePath(Directory.GetCurrentDirectory())
+			//.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+			//_configuration = builder.Build();
+
 			EndLoad();
 		}
 
@@ -44,6 +56,20 @@ namespace KanbanService
 			try
 			{
 				// Implement Start logic here 
+
+				//var serverSettings = new ServerSettings();
+				//var readingSettings = new ReadingSettings();
+
+
+				//_configuration.Bind("ReadingSettings", readingSettings);
+				//_configuration.Bind("ServerSettings", serverSettings);
+
+				//var service = new KanbanService(readingSettings);
+				//var t = new Thread(delegate ()
+				//{
+				//	var server = new Server(serverSettings, service.StartService);
+				//});
+				//t.Start();
 
 				base.Start();
 			}
