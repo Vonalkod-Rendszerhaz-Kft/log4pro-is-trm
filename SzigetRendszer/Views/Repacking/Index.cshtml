@@ -1,0 +1,59 @@
+﻿
+@{
+	ViewBag.Title = "Átcsomagolás";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+	.div-input {
+		margin-bottom: 50px;
+	}
+
+	.label-for-input {
+		font-size:medium;
+	}
+
+	.input-with-bottom-margin {
+		margin-bottom: 20px;
+	}
+
+	.button-submit {
+		padding:15px;
+		font-size:15px;
+	}
+
+	h2 {
+		margin-bottom: 50px;
+	}
+
+</style>
+
+<script>
+	function Repacking(url) {
+		$.ajax({
+			type: 'POST',
+			contentType: "application/json; charset=utf-8",
+			dataType: 'json',
+			url: url,
+			success: function (data) {
+				window.alert(JSON.stringify(data))
+			},
+			error: function (a, jqXHR, exception) { }
+		});
+	}
+</script>
+
+<h2>Átcsomagolás</h2>
+
+<div>
+	<div class="div-input">
+		<label class="label-for-input" for="shippingUnitId">Szállítási egység azonosító</label><br />
+		<input class="input-lg input-with-bottom-margin" id="shippingUnitId" /><br />
+		<label class="label-for-input" for="packgingUnitId">Csomagolási egység azonosító</label><br />
+		<input class="input-lg input-with-bottom-margin" id="packagingUnitId" /><br />
+		<label class="label-for-input" for="qty">Mennyiség</label><br />
+		<input class="input-lg" type="number" id="qty" /><br />
+	</div>
+	
+	<a class="btn-primary button-submit" href="javascript:;" onclick="Repacking('@Url.Action("Repack", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?shippingUnitId='+document.getElementById('shippingUnitId').value+'&packagingUnitId='+document.getElementById('packagingUnitId').value+'&qty='+document.getElementById('qty').value));">Átcsomagolás</a>
+</div>
+
