@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SzigetRendszer", "SzigetRen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanbanService", "KanbanService\KanbanService.csproj", "{B7DC92C3-9A3E-4DB9-AE24-C579B180974E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMonitor", "WebMonitor\WebMonitor.csproj", "{1B938978-633F-43EA-9AED-EF0D5A1FDD07}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{B7DC92C3-9A3E-4DB9-AE24-C579B180974E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7DC92C3-9A3E-4DB9-AE24-C579B180974E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7DC92C3-9A3E-4DB9-AE24-C579B180974E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B938978-633F-43EA-9AED-EF0D5A1FDD07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B938978-633F-43EA-9AED-EF0D5A1FDD07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B938978-633F-43EA-9AED-EF0D5A1FDD07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B938978-633F-43EA-9AED-EF0D5A1FDD07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
