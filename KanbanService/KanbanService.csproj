@@ -58,11 +58,15 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.6\lib\net46\StackExchange.Redis.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
@@ -97,6 +101,12 @@
     <Reference Include="VRH.Common, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\VRH.Common.2.10.0\lib\net45\VRH.Common.dll</HintPath>
     </Reference>
+    <Reference Include="Vrh.EventHub.Core, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vrh.EventHub.Core.1.2.0\lib\net45\Vrh.EventHub.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Vrh.EventHub.Protocols.RedisPubSub, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vrh.EventHub.Protocols.RedisPubSub.2.0.7\lib\net45\Vrh.EventHub.Protocols.RedisPubSub.dll</HintPath>
+    </Reference>
     <Reference Include="Vrh.Logger, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Vrh.Logger.2.3.2\lib\net451\Vrh.Logger.dll</HintPath>
     </Reference>
@@ -118,8 +128,16 @@
     <Compile Include="ServerSettings.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Vrh.EventHub.RedisPubSub.Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Vrh.EventHub.Core.Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="app.config" />
-    <None Include="appsettings.json" />
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Vrh.ApplicationContainer.ConsoleHost.exe.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -135,6 +153,8 @@
     </None>
     <None Include="Vrh.NugetModuls.Documentations\Vrh.ApplicationContainer\ReadMe.md" />
     <None Include="Vrh.NugetModuls.Documentations\VRH.Common\ReadMe.md" />
+    <None Include="Vrh.NugetModuls.Documentations\Vrh.EventHub.Core\ReadMe.md" />
+    <None Include="Vrh.NugetModuls.Documentations\Vrh.EventHub.Protocols.RedisPubSub\ReadMe.md" />
     <None Include="Vrh.NugetModuls.Documentations\Vrh.Logger\ReadMe.md" />
     <None Include="Vrh.NugetModuls.Documentations\Vrh.XmlProcessing\ReadMe.md" />
   </ItemGroup>
@@ -147,6 +167,12 @@
     <None Include="LogConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TRM.EventHubContract\Log4Pro.IS.TRM.EventHubContract.csproj">
+      <Project>{26734fc3-d03d-4b91-a295-70ccd1903b0f}</Project>
+      <Name>Log4Pro.IS.TRM.EventHubContract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

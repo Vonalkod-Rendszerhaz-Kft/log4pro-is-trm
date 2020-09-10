@@ -9,24 +9,27 @@ using Vrh.ApplicationContainer.Control.Contract;
 using Vrh.ApplicationContainer.Core;
 using Microsoft.Extensions.Configuration;
 using System.Dynamic;
+using Log4Pro.IS.TRM.EventHubContract;
+using Vrh.EventHub.Core;
+using Vrh.EventHub.Protocols.RedisPubSub;
 
 namespace KanbanService
 {
 
 	public class KanbanServicePlugin : PluginAncestor
 	{
-		//private static IConfiguration _configuration;
+		private static IConfiguration _configuration;
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		private KanbanServicePlugin()
 		{
-			//var builder = new ConfigurationBuilder()
-			//.SetBasePath(Directory.GetCurrentDirectory())
-			//.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-			//_configuration = builder.Build();
-
+			var builder = new ConfigurationBuilder()
+			.SetBasePath(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location))
+			.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+			_configuration = builder.Build();			
+			
 			EndLoad();
 		}
 
@@ -55,21 +58,21 @@ namespace KanbanService
 			BeginStart();
 			try
 			{
-				// Implement Start logic here 
+				//Implement Start logic here
 
-				//var serverSettings = new ServerSettings();
-				//var readingSettings = new ReadingSettings();
+				var serverSettings = new ServerSettings();
+				var readingSettings = new ReadingSettings();
 
 
-				//_configuration.Bind("ReadingSettings", readingSettings);
-				//_configuration.Bind("ServerSettings", serverSettings);
+				_configuration.Bind("ReadingSettings", readingSettings);
+				_configuration.Bind("ServerSettings", serverSettings);
 
-				//var service = new KanbanService(readingSettings);
-				//var t = new Thread(delegate ()
-				//{
-				//	var server = new Server(serverSettings, service.StartService);
-				//});
-				//t.Start();
+				var service = new KanbanService(readingSettings);
+				var t = new Thread(delegate ()
+				{
+					var server = new Server(serverSettings, service.StartService);
+				});
+				t.Start();
 
 				base.Start();
 			}
