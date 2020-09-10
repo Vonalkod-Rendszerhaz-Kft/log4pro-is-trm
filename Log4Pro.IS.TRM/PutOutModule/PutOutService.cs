@@ -48,11 +48,11 @@ namespace Log4Pro.IS.TRM.PutOutModule
                             EventHubCore.Call<RedisPubSubChannel,
                                                 TrackingContract.KanbanModule.ReservationRequest,
                                                 TrackingContract.KanbanModule.ReservationResponse>(
-                                            EventHubChannelName,
+											$"{TrackingContract.CHANNEL_PREFIX}:{TrackingContract.KanbanModule.MODULE_PREFIX}:{InstanceName}",
                                             new TrackingContract.KanbanModule.ReservationRequest()
                                             {
                                                 PackagingUnitId = storedPackagingUnit.PackageUnitId,
-                                            }, new TimeSpan(0, 0, 2));
+                                            }, new TimeSpan(0, 0, 5));
                         var putedOutPackagingUnit = dbc.PutOut(storedPackagingUnit);
                         var xml = GetMonitorData(putedOutPackagingUnit, responseFromKanbanSubSystem.ReservedLocation);
                         dbc.AddMonitorData(WorkstationType.Putout, InstanceName, xml);
