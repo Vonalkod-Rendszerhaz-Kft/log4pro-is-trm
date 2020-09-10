@@ -101,11 +101,14 @@
     <Reference Include="VRH.Common, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\VRH.Common.2.10.0\lib\net45\VRH.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Vrh.EventHub.Core, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Vrh.EventHub.Core.1.2.0\lib\net45\Vrh.EventHub.Core.dll</HintPath>
+    <Reference Include="Vrh.EventHub.Core, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vrh.EventHub.Core.1.2.1\lib\net45\Vrh.EventHub.Core.dll</HintPath>
     </Reference>
     <Reference Include="Vrh.EventHub.Protocols.RedisPubSub, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Vrh.EventHub.Protocols.RedisPubSub.2.0.7\lib\net45\Vrh.EventHub.Protocols.RedisPubSub.dll</HintPath>
+    </Reference>
+    <Reference Include="Vrh.LinqXMLProcessor.Base, Version=1.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vrh.LinqXMLProcessor.Base.1.2.4\lib\net45\Vrh.LinqXMLProcessor.Base.dll</HintPath>
     </Reference>
     <Reference Include="Vrh.Logger, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Vrh.Logger.2.3.2\lib\net451\Vrh.Logger.dll</HintPath>
@@ -128,10 +131,10 @@
     <Compile Include="ServerSettings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Vrh.EventHub.RedisPubSub.Config.xml">
+    <None Include="Vrh.EventHub.Core.Config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Vrh.EventHub.Core.Config.xml">
+    <None Include="Vrh.EventHub.RedisPubSub.Config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="app.config" />
@@ -155,6 +158,7 @@
     <None Include="Vrh.NugetModuls.Documentations\VRH.Common\ReadMe.md" />
     <None Include="Vrh.NugetModuls.Documentations\Vrh.EventHub.Core\ReadMe.md" />
     <None Include="Vrh.NugetModuls.Documentations\Vrh.EventHub.Protocols.RedisPubSub\ReadMe.md" />
+    <None Include="Vrh.NugetModuls.Documentations\Vrh.LinqXMLProcessor.Base\ReadMe.md" />
     <None Include="Vrh.NugetModuls.Documentations\Vrh.Logger\ReadMe.md" />
     <None Include="Vrh.NugetModuls.Documentations\Vrh.XmlProcessing\ReadMe.md" />
   </ItemGroup>

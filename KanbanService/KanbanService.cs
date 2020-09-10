@@ -31,15 +31,18 @@ namespace KanbanService
 		public KanbanService(ReadingSettings readingSettings)
 		{
 			this.readingSettings = readingSettings;
-
+			_locationMaps = new List<TrackingContract.KanbanModule.LocationMap>();
 			for (int i = 1; i <= 8; i++) {
-				_locationMaps = new List<TrackingContract.KanbanModule.LocationMap>();
 				TrackingContract.KanbanModule.LocationMap locationMap = new TrackingContract.KanbanModule.LocationMap();
 				locationMap.Location = i.ToString();
 				locationMap.Status = TrackingContract.KanbanModule.KanbanLocationStatus.Free;
 				_locationMaps.Add(locationMap);
 			}
-
+			TrackingContract.KanbanModule.ChangeEvent changeEvent = new TrackingContract.KanbanModule.ChangeEvent
+			{
+				LocationMap = _locationMaps,
+			};
+			EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.ChangeEvent>(EventHubChannelName, changeEvent);
 			EventHubCore.RegisterHandler<RedisPubSubChannel,
 					TrackingContract.KanbanModule.ReservationRequest, TrackingContract.KanbanModule.ReservationResponse>(EventHubChannelName, LocationReservation);
 		}
@@ -116,11 +119,11 @@ namespace KanbanService
 					{
 						// egy másik doboz került a helyére
 					}
-
-					TrackingContract.KanbanModule.ChangeEvent changeEvent = new TrackingContract.KanbanModule.ChangeEvent();
-					changeEvent.LocationMap = _locationMaps;
-					EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.ChangeEvent>(EventHubChannelName, changeEvent);
-					
+					TrackingContract.KanbanModule.ChangeEvent changeEvent = new TrackingContract.KanbanModule.ChangeEvent
+					{
+						LocationMap = _locationMaps,
+					};
+					EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.ChangeEvent>(EventHubChannelName, changeEvent);					
 				}
 			}
 		}
@@ -165,18 +168,22 @@ namespace KanbanService
 		private Response<TrackingContract.KanbanModule.ReservationResponse> LocationReservation(Request<TrackingContract.KanbanModule.ReservationRequest, TrackingContract.KanbanModule.ReservationResponse> message)
 		{
 			Response<TrackingContract.KanbanModule.ReservationResponse> reservationResponseMessage = message.MyResponse;
-
 			try
 			{
 				var locationMap = _locationMaps.FirstOrDefault(x => x.Status == TrackingContract.KanbanModule.KanbanLocationStatus.Free);
-
 				if (locationMap != null)
 				{
 					locationMap.ExpectedPackagingUnit = message.RequestContent.PackagingUnitId;
 					locationMap.Status = TrackingContract.KanbanModule.KanbanLocationStatus.Reserved;
-
-					reservationResponseMessage.ResponseContent.ReservedLocation = locationMap.Location;
-
+					reservationResponseMessage.ResponseContent = new TrackingContract.KanbanModule.ReservationResponse()
+					{
+						ReservedLocation = locationMap.Location,
+					};
+					TrackingContract.KanbanModule.ChangeEvent changeEvent = new TrackingContract.KanbanModule.ChangeEvent
+					{
+						LocationMap = _locationMaps,
+					};
+					EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.ChangeEvent>(EventHubChannelName, changeEvent);
 				}
 				else
 				{
