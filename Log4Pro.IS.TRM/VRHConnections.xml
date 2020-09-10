@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <connectionStrings>
   <connectionString name="IS-TRM">
-    <Element name="Data Source">.\SQLEXPRESS2008R2</Element>
+    <Element name="Data Source">.\MSSQL2017</Element>
     <Element name="Initial Catalog">IS-TRM</Element>
     <Element name="user id">sa</Element>
     <Element name="password">sapw</Element>

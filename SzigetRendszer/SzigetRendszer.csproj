@@ -118,8 +118,8 @@
     <Reference Include="VRH.Common, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\VRH.Common.2.9.0\lib\net45\VRH.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Vrh.EventHub.Core, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Vrh.EventHub.Core.1.2.0\lib\net45\Vrh.EventHub.Core.dll</HintPath>
+    <Reference Include="Vrh.EventHub.Core, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vrh.EventHub.Core.1.2.1\lib\net45\Vrh.EventHub.Core.dll</HintPath>
     </Reference>
     <Reference Include="Vrh.EventHub.Protocols.RedisPubSub, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Vrh.EventHub.Protocols.RedisPubSub.2.0.7\lib\net45\Vrh.EventHub.Protocols.RedisPubSub.dll</HintPath>
@@ -152,6 +152,7 @@
     <Compile Include="Areas\ISTRM\Controllers\APIController.cs" />
     <Compile Include="Areas\ISTRM\ISTRMAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RepackingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,10 +178,11 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <None Include="Vrh.EventHub.Core.Config.xml">
+    <Content Include="Views\Repacking\Index.cshtml" />
+    <None Include="Vrh.EventHub.RedisPubSub.Config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Vrh.EventHub.RedisPubSub.Config.xml">
+    <None Include="Vrh.EventHub.Core.Config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Web.config" />
@@ -199,8 +201,8 @@
     <Content Include="Vrh.NugetModuls.Documentations\VRH.Common\ReadMe.md" />
     <Content Include="Vrh.NugetModuls.Documentations\Vrh.LinqXMLProcessor.Base\ReadMe.md" />
     <Content Include="Vrh.NugetModuls.Documentations\Vrh.Logger\ReadMe.md" />
-    <Content Include="Vrh.NugetModuls.Documentations\Vrh.EventHub.Core\ReadMe.md" />
     <Content Include="Vrh.NugetModuls.Documentations\Vrh.EventHub.Protocols.RedisPubSub\ReadMe.md" />
+    <Content Include="Vrh.NugetModuls.Documentations\Vrh.EventHub.Core\ReadMe.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
