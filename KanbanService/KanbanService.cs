@@ -10,7 +10,7 @@ using Vrh.EventHub.Protocols.RedisPubSub;
 
 namespace KanbanService
 {
-	public class KanbanService
+	public class KanbanService : IDisposable
 	{
 		private Inventory current;
 		private Timer timer;
@@ -27,6 +27,8 @@ namespace KanbanService
 		private string EventHubChannelName { get => $"{TrackingContract.CHANNEL_PREFIX}:{TrackingContract.KanbanModule.MODULE_PREFIX}:{InstanceName}"; }
 
 		private List<TrackingContract.KanbanModule.LocationMap> _locationMaps;
+
+		private bool disposedValue;
 
 		public KanbanService(ReadingSettings readingSettings)
 		{
@@ -196,6 +198,38 @@ namespace KanbanService
 			}
 
 			return reservationResponseMessage;
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (!disposedValue)
+			{
+				if (disposing)
+				{
+					// TODO: dispose managed state (managed objects)
+					EventHubCore.DropHandler<RedisPubSubChannel,
+							TrackingContract.KanbanModule.ReservationRequest, TrackingContract.KanbanModule.ReservationResponse>(EventHubChannelName, LocationReservation);
+					timer?.Dispose();
+				}
+
+				// TODO: free unmanaged resources (unmanaged objects) and override finalizer
+				// TODO: set large fields to null
+				disposedValue = true;
+			}
+		}
+
+		// // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+		// ~KanbanService()
+		// {
+		//     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+		//     Dispose(disposing: false);
+		// }
+
+		public void Dispose()
+		{
+			// Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+			Dispose(disposing: true);
+			GC.SuppressFinalize(this);
 		}
 	}
 }

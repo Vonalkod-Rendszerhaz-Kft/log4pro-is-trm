@@ -67,12 +67,13 @@ namespace KanbanService
 				_configuration.Bind("ReadingSettings", readingSettings);
 				_configuration.Bind("ServerSettings", serverSettings);
 
-				var service = new KanbanService(readingSettings);
-				var t = new Thread(delegate ()
-				{
-					var server = new Server(serverSettings, service.StartService);
-				});
-				t.Start();
+				_kanbanService = new KanbanService(readingSettings);
+				_socketServer = new Server(serverSettings, _kanbanService.StartService);
+				//var t = new Thread(delegate ()
+				//{
+				//	_socketServer = new Server(serverSettings, _kanbanService.StartService);
+				//});
+				//t.Start();
 
 				base.Start();
 			}
@@ -95,7 +96,8 @@ namespace KanbanService
 			try
 			{
 				// Implement stop logic here
-
+				_kanbanService?.Dispose();
+				_socketServer?.Dispose();
 				base.Stop();
 			}
 			catch (Exception ex)
@@ -103,6 +105,9 @@ namespace KanbanService
 				SetErrorState(ex);
 			}
 		}
+
+		private KanbanService _kanbanService = null;
+		private Server _socketServer = null;
 
 		#region IDisposable Support
 		protected override void Dispose(bool disposing)

@@ -21,14 +21,18 @@ namespace KanbanService
 			IPAddress localAddr = IPAddress.Parse(settings.IPAddress);
 			server = new TcpListener(localAddr, settings.Port);
 			server.Start();
-			StartListener();
+			var t = new Thread(delegate ()
+			{
+				StartListener();
+			});
+			t.Start();			
 		}
 
 		public void StartListener()
 		{
 			try
 			{
-				while (true)
+				while (!disposedValue)
 				{
 					// Waiting for a connection...
 					TcpClient client = server.AcceptTcpClient();
@@ -60,6 +64,7 @@ namespace KanbanService
 			{
 				if (disposing)
 				{
+					server.Stop();
 					onConnect = null;
 				}
 
