@@ -145,7 +145,7 @@ namespace SzigetRendszer.Areas.ISTRM.Controllers
             {
                 response = EventHubCore.Call<RedisPubSubChannel,
                     TrackingContract.PutOutModule.PutOutRequest,
-                    TrackingContract.Response>($"{TrackingContract.CHANNEL_PREFIX}:{TrackingContract.PutOutModule.MODULE_PREFIX}:demo", request);
+                    TrackingContract.Response>($"{TrackingContract.CHANNEL_PREFIX}:{TrackingContract.PutOutModule.MODULE_PREFIX}:demo", request, new TimeSpan(0, 0, 5));
             }
             catch (Exception ex)
             {
@@ -153,5 +153,47 @@ namespace SzigetRendszer.Areas.ISTRM.Controllers
             }
             return Json(response, JsonRequestBehavior.AllowGet);
         }
-    }
+
+		// POST: ISTRM/API/KanbanStoreIn
+		[HttpPost]
+		public ActionResult KanbanStoreIn(string packagingUnitId)
+		{
+			try
+			{
+				var request = new TrackingContract.KanbanModule.SuccessStoreIn()
+				{
+					PackageUnitId = packagingUnitId,
+				};
+				EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.SuccessStoreIn>(
+					$"{TrackingContract.CHANNEL_PREFIX}:{TrackingContract.KanbanModule.MODULE_PREFIX}:demo", 
+					request);
+				return Json(null, JsonRequestBehavior.AllowGet);
+			}
+			catch (Exception ex)
+			{
+				return Json(ex.Message, JsonRequestBehavior.AllowGet);
+			}
+		}
+
+		// POST: ISTRM/API/KanbanStoreOut
+		[HttpPost]
+		public ActionResult KanbanStoreOut(string packagingUnitId)
+		{
+			try
+			{
+				var request = new TrackingContract.KanbanModule.SuccessStoreOut()
+				{
+					PackageUnitId = packagingUnitId,
+				};
+				EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.SuccessStoreOut>(
+					$"{TrackingContract.CHANNEL_PREFIX}:{TrackingContract.KanbanModule.MODULE_PREFIX}:demo",
+					request);
+				return Json(null, JsonRequestBehavior.AllowGet);
+			}
+			catch (Exception ex)
+			{
+				return Json(ex.Message, JsonRequestBehavior.AllowGet);
+			}
+		}
+	}
 }

@@ -19,18 +19,20 @@
 </script>
 
 <div>
-    Válasz: <p id="response"></p>
-    <input id="supplierShippingUnitId" /> supplierShippingUnitId (TakeInQuery) <br />
-    <input id="externalShippingUnitId" /> externalShippingUnitId (TakeIn)  <br />
-    <input id="internalShippingUnitId" /> internalShippingUnitId (TakeIn) <br />
-    <input id="partNumber" /> partNumber (TakeIn) <br />
-    <input id="qty" /> qty (TakeIn, Repack, AvailableQty) <br />
-    <input id="shippingUnitId" /> shippingUnitId (Repack, AvailableQty, Receive) <br />
-    <input id="packagingUnitId" /> packagingUnitId (Repack, AvailableQty, PutOut) <br />
-    <a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("TakeInQuery", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?supplierShippingUnitId=' + document.getElementById('supplierShippingUnitId').value))">TakeInQuery</a>
-    <a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("TakeIn", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?externalShippingUnitId=' + document.getElementById('externalShippingUnitId').value + '&internalShippingUnitId=' + document.getElementById('internalShippingUnitId').value + '&partNumber=' + document.getElementById('partNumber').value + '&qty=' + document.getElementById('qty').value));">TakeIn</a>
-    <a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("Receive", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?shippingUnitId='+ document.getElementById('shippingUnitId').value))">Receive</a>
-    <a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("Repack", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?shippingUnitId='+document.getElementById('shippingUnitId').value+'&packagingUnitId='+document.getElementById('packagingUnitId').value+'&qty='+document.getElementById('qty').value));">Repack</a>
-    <a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("AvailableQty", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?shippingUnitId='+document.getElementById('shippingUnitId').value+'&packagingUnitId='+document.getElementById('packagingUnitId').value+'&qty='+document.getElementById('qty').value));">AvailableQty</a>
-    <a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("PutOut", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?packagingUnitId='+document.getElementById('packagingUnitId').value));">PutOut</a>
+	Válasz: <p id="response"></p>
+	<input id="supplierShippingUnitId" /> supplierShippingUnitId (TakeInQuery) <br />
+	<input id="externalShippingUnitId" /> externalShippingUnitId (TakeIn)  <br />
+	<input id="internalShippingUnitId" /> internalShippingUnitId (TakeIn) <br />
+	<input id="partNumber" /> partNumber (TakeIn) <br />
+	<input id="qty" /> qty (TakeIn, Repack, AvailableQty) <br />
+	<input id="shippingUnitId" /> shippingUnitId (Repack, AvailableQty, Receive) <br />
+	<input id="packagingUnitId" /> packagingUnitId (Repack, AvailableQty, PutOut, KanbanStoreIn, KanbanStoreOut) <br />
+	<a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("TakeInQuery", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?supplierShippingUnitId=' + document.getElementById('supplierShippingUnitId').value))">TakeInQuery</a>
+	<a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("TakeIn", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?externalShippingUnitId=' + document.getElementById('externalShippingUnitId').value + '&internalShippingUnitId=' + document.getElementById('internalShippingUnitId').value + '&partNumber=' + document.getElementById('partNumber').value + '&qty=' + document.getElementById('qty').value));">TakeIn</a>
+	<a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("Receive", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?shippingUnitId='+ document.getElementById('shippingUnitId').value))">Receive</a>
+	<a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("Repack", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?shippingUnitId='+document.getElementById('shippingUnitId').value+'&packagingUnitId='+document.getElementById('packagingUnitId').value+'&qty='+document.getElementById('qty').value));">Repack</a>
+	<a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("AvailableQty", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?shippingUnitId='+document.getElementById('shippingUnitId').value+'&packagingUnitId='+document.getElementById('packagingUnitId').value+'&qty='+document.getElementById('qty').value));">AvailableQty</a>
+	<a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("PutOut", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?packagingUnitId='+document.getElementById('packagingUnitId').value));">PutOut</a>
+	<a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("KanbanStoreIn", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?packagingUnitId='+document.getElementById('packagingUnitId').value));">Kanban success store in</a>
+	<a style="padding:5px" href="javascript:;" onclick="GetData('@Url.Action("KanbanStoreOut", "api", new  { area = "ISTRM"}, Request.Url.Scheme)'.concat('?packagingUnitId='+document.getElementById('packagingUnitId').value));">Kanban success store out</a>
 </div>
