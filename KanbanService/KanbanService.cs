@@ -44,9 +44,9 @@ namespace KanbanService
 			{
 				LocationMap = _locationMaps,
 			};
-			EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.ChangeEvent>(EventHubChannelName, changeEvent);
-			EventHubCore.RegisterHandler<RedisPubSubChannel,
-					TrackingContract.KanbanModule.ReservationRequest, TrackingContract.KanbanModule.ReservationResponse>(EventHubChannelName, LocationReservation);
+			//EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.ChangeEvent>(EventHubChannelName, changeEvent);
+			//EventHubCore.RegisterHandler<RedisPubSubChannel,
+			//		TrackingContract.KanbanModule.ReservationRequest, TrackingContract.KanbanModule.ReservationResponse>(EventHubChannelName, LocationReservation);
 		}
 
 		public void StartService(Stream stream)
@@ -108,14 +108,14 @@ namespace KanbanService
 						// felkerült egy új
 						TrackingContract.KanbanModule.SuccessStoreIn successStoreIn = new TrackingContract.KanbanModule.SuccessStoreIn();
 						successStoreIn.PackageUnitId = current[i];
-						EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.SuccessStoreIn>(EventHubChannelName, successStoreIn);
+						//EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.SuccessStoreIn>(EventHubChannelName, successStoreIn);
 					}
 					else if (previous[i] != null && current[i] == null)
 					{
 						// lekerült egy doboz
 						TrackingContract.KanbanModule.SuccessStoreOut successStoreOut = new TrackingContract.KanbanModule.SuccessStoreOut();
 						successStoreOut.PackageUnitId = current[i];
-						EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.SuccessStoreOut>(EventHubChannelName, successStoreOut);
+						//EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.SuccessStoreOut>(EventHubChannelName, successStoreOut);
 					}
 					else 
 					{
@@ -125,7 +125,7 @@ namespace KanbanService
 					{
 						LocationMap = _locationMaps,
 					};
-					EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.ChangeEvent>(EventHubChannelName, changeEvent);					
+					//EventHubCore.Send<RedisPubSubChannel, TrackingContract.KanbanModule.ChangeEvent>(EventHubChannelName, changeEvent);					
 				}
 			}
 		}
