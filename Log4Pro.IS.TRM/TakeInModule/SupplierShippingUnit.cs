@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Log4Pro.IS.TRM.DAL;
+using VRH.Common;
 
 namespace Log4Pro.IS.TRM.TakeInModule
 {
@@ -35,11 +36,8 @@ namespace Log4Pro.IS.TRM.TakeInModule
                 }
             }
             GetMyDataFromDb();
-            FVS = $"{PartNumber.PadLeft(8, 'X').Substring(0, 8)}" +
-                    $"{GetRandomString(6)}" +
-                    $"{TimeStamp.ToString("yyMMddHHmm")}" +
-                    $"{Qty.ToString("D5")}";
-            MTSId = GetRandomString(11);
+			FVS = "565243303030" + GetFVS(); 
+			MTSId = GetRandomString(11);
             Slot = GetRandomString(8);
         }       
 
@@ -124,10 +122,26 @@ namespace Log4Pro.IS.TRM.TakeInModule
             }
         }
 
-        /// <summary>
-        /// BEállítja a cikk adatait az adatbázisból
-        /// </summary>
-        private void GetMyDataFromDb()
+		private string GetFVS()
+		{
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < 6; i++)
+			{
+				sb.Append(GetRandomNumberCode());
+			}
+			return sb.ToString();
+		}
+
+		private string GetRandomNumberCode()
+		{
+			var i = _rnd.Next(0, 9);
+			return ((int)i.ToString()[0]).ToString("X2");
+		}
+
+		/// <summary>
+		/// BEállítja a cikk adatait az adatbázisból
+		/// </summary>
+		private void GetMyDataFromDb()
         {
             using (var dbc = new ISTRMContext())
             {
@@ -145,5 +159,7 @@ namespace Log4Pro.IS.TRM.TakeInModule
                 }
             }
         }
+
+		private Random _rnd = new Random();
     }
 }

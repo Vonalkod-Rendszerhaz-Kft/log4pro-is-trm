@@ -70,7 +70,6 @@ namespace Log4Pro.IS.TRM.TakeInModule
             try
             {
                 var responseContent = new TrackingContract.Response();
-                // TODO: Implementetion
                 using(var dbc = new ISTRMContext())
                 {
                     if (dbc.ShippingUnits.FirstOrDefault(x => x.ShippingUnitId == request.RequestContent.InternalShippingUnitId) != null)
